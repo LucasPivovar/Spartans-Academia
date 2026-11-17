@@ -1710,18 +1710,27 @@ main {
 @font-face { font-family: SpartansCondensed; src: url('/assets/fonts/teko-bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
 .hero-title,.section-heading,.about-title,.plan-name,.caption-title { font-family: SpartansCondensed,Impact,sans-serif; font-weight:700; font-style:normal; letter-spacing:.005em; -webkit-text-stroke:0; }
 .hero-title { font-size:clamp(54px,6.5vw,92px); line-height:.98; }
-.site-header .brand-logo { width:200px; height:76px; object-fit:contain; }
-.brand-logo--footer { width:260px; height:auto; }
-@media(max-width:640px) { .site-header .brand-logo { width:164px; height:62px; } .hero-title { font-size:clamp(44px,12vw,66px); line-height:1.04; } }
+.site-header .brand-logo { width:auto; height:78px; object-fit:contain; }
+.brand-logo--footer { width:156px; height:auto; }
+@media(max-width:640px) { .site-header .brand-logo { width:auto; height:62px; } .hero-title { font-size:clamp(44px,12vw,66px); line-height:1.04; } }
 
-/* Refined cards and restrained motion. */
-.plan-card { clip-path:none; border:1px solid #dedbde; border-radius:12px; border-top:3px solid #bcb7bc; box-shadow:0 8px 28px rgba(31,29,32,.05); transition:transform 240ms ease,box-shadow 240ms ease,border-color 240ms ease; }
-.plan-card--featured { border-color:var(--accent-base); }
-.plan-card .plan-btn { clip-path:none; border-radius:6px; }
-.about-media, .about-media img { clip-path:none; border-radius:10px; }
-.about-media img { aspect-ratio:639/359; object-fit:contain; transform:none!important; }
-.coverflow-slide img { object-fit:contain; background:#1f1d20; }
+/* Spartans architectural straight-edge cards, full-bleed 16:9 carousel, and refined motion. */
+.coverflow-stage { max-width:720px; aspect-ratio:16/9; }
+@media(max-width:640px) { .coverflow-stage { aspect-ratio:16/9; } }
+.space-frame { border-radius:0; border:1px solid rgba(255,255,255,.22); background:#171518; }
+.space-frame img, .coverflow-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.coverflow-btn { border-radius:0; user-select:none; }
+
+.about-media { max-width:540px; padding:0; clip-path:none; border-radius:0; background:transparent; border:1px solid rgba(255,255,255,.16); box-shadow:-10px 10px 0 var(--accent-base); }
+.about-media img { clip-path:none; border-radius:0; aspect-ratio:16/9; width:100%; height:100%; object-fit:cover; transform:none!important; }
+
+.space-specialty { clip-path:none; border-radius:0; border:1px solid rgba(255,255,255,.1); border-top:3px solid var(--accent-base); }
+.plan-card { clip-path:none; border:1px solid #d9d6db; border-radius:0; border-top:4px solid #bcb7bc; box-shadow:0 10px 28px rgba(31,29,32,.06); transition:transform 220ms ease,box-shadow 220ms ease,border-color 220ms ease; }
+.plan-card--featured { border-color:rgba(225,9,10,.38); border-top:4px solid var(--accent-base); }
+.plan-card .plan-btn, .btn-primary, .btn-secondary, .covenant-pill { clip-path:none; border-radius:0; user-select:none; }
+.plan-card .plan-btn:active, .btn-primary:active, .btn-secondary:active { transform:scale(0.98); }
+
 .motion-ready .reveal { transform:translateY(12px); transition-duration:420ms; transition-delay:0ms; }
 a.trial-cta::after { display:none; }
-@media(hover:hover) and (prefers-reduced-motion:no-preference) { .plan-card:hover { transform:translateY(-4px); box-shadow:0 16px 36px rgba(31,29,32,.12); } }
+@media(hover:hover) and (prefers-reduced-motion:no-preference) { .plan-card:hover { transform:translateY(-3px); box-shadow:0 16px 36px rgba(31,29,32,.12); } }
 @media(prefers-reduced-motion:reduce) { .plan-card { transition:none; } }
