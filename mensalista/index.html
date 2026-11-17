@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="robots" content="noindex,nofollow"/><meta name="theme-color" content="#211e22"/>
+  <title>Minha academia • Spartans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/mensalista/styles.css"/><link rel="stylesheet" href="/mensalista/store.css"/><link rel="manifest" href="/mensalista/manifest.webmanifest"/>
+  <script src="/mensalista/store.js" defer></script>
+<script src="/demo/store-api.js" defer></script>
+<script src="/demo/professor-api.js" defer></script>
+<script src="/demo/member-api.js" defer></script>
+<script src="/demo/api.js" defer></script>
+<script src="/mensalista/app.js" defer></script>
+</head>
+<body>
+  <div id="loading" class="loading" role="status">Carregando sua academia…</div>
+  <section id="login" class="login" hidden>
+    <div class="login-brand"><a href="/"><img src="/assets/spartans-wordmark-v4.png" width="400" height="400" alt="Academia Spartans"/></a><div><span class="kicker">ÁREA DO MENSALISTA</span><h1>SEU TREINO.<br/><em>SEU RITMO.</em></h1><p>Sua academia acompanha você.<br/>Treinos, mensalidade e benefícios em um só lugar.</p></div><span class="brand-location">TATUQUARA · CURITIBA, PR</span></div>
+    <div class="login-content"><div><a class="back-link" href="/">← Voltar para a academia</a><h2>Bom ter você por aqui.</h2><p>Entre para acompanhar sua rotina.</p><div id="login-error" class="error" role="alert" hidden></div><form id="login-form"><label>E-mail<input name="email" type="email" autocomplete="username" required maxlength="254"/></label><label>Senha<input name="password" type="password" autocomplete="current-password" required maxlength="128"/></label><button class="button primary" type="submit">Entrar na minha academia <span aria-hidden="true">↗</span></button></form><div id="demo-entry" hidden></div><p class="login-help">Primeiro acesso? Peça seu cadastro à recepção.</p></div></div>
+  </section>
+  <div id="app" class="app" hidden>
+    <aside class="sidebar"><a class="logo" href="#inicio" aria-label="Spartans — início"><img src="/assets/spartans-wordmark-v4.png" width="400" height="400" alt="Spartans"/></a><nav id="desktop-nav" aria-label="Menu do mensalista"></nav><div class="sidebar-end"><a href="/">Ver academia <span aria-hidden="true">↗</span></a><button type="button" data-action="logout">Sair da conta</button></div></aside>
+    <div class="workspace"><header class="topbar"><a class="mobile-logo" href="#inicio"><img src="/assets/spartans-wordmark-v4.png" width="400" height="400" alt="Spartans"/></a><span class="topbar-caption">SUA ACADEMIA, COM VOCÊ.</span><a class="support" href="https://wa.me/5541999501754" target="_blank" rel="noopener">Falar com a academia <span aria-hidden="true">↗</span></a><a href="#conta" class="identity" aria-label="Minha conta"><span id="initials" class="avatar"></span><span id="member-name"></span></a></header><main id="view" tabindex="-1"></main><footer>SPARTANS <span>SUA FORÇA. SEU PRÓXIMO NÍVEL.</span></footer></div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Menu do mensalista no celular"></nav>
+  </div>
+  <dialog id="benefit-dialog" aria-labelledby="benefit-title"><button type="button" class="dialog-close" data-action="close-benefit" aria-label="Fechar">×</button><div id="benefit-content"></div></dialog>
+  <dialog id="shop-cart-dialog" class="shop-cart-dialog" aria-label="Seu carrinho"><button type="button" class="shop-modal-close" data-shop="close-cart" aria-label="Fechar carrinho">×</button><div id="shop-cart-content"></div></dialog>
+  <div id="toast" class="toast" role="status" popover="manual" hidden></div>
+</body>
+</html>

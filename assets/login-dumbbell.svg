@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="metal" x1="160" y1="70" x2="380" y2="250" gradientUnits="userSpaceOnUse"><stop stop-color="#605b61"/><stop offset=".48" stop-color="#2e2b30"/><stop offset="1" stop-color="#211f23"/></linearGradient>
+    <linearGradient id="rim" x1="140" y1="80" x2="340" y2="270" gradientUnits="userSpaceOnUse"><stop stop-color="#a29aa4" stop-opacity=".65"/><stop offset="1" stop-color="#7d727f" stop-opacity=".12"/></linearGradient>
+    <linearGradient id="bar" x1="200" y1="135" x2="200" y2="175" gradientUnits="userSpaceOnUse"><stop stop-color="#8a818d"/><stop offset=".4" stop-color="#514c54"/><stop offset="1" stop-color="#2a272d"/></linearGradient>
+  </defs>
+  <g transform="rotate(-28 280 160)">
+    <path d="M72 145h416v30H72z" fill="url(#bar)" stroke="url(#rim)"/>
+    <path d="M212 145h136v30H212z" fill="#3a353e"/>
+    <path d="m218 150 14 20m0-20 14 20m0-20 14 20m0-20 14 20m0-20 14 20m0-20 14 20m0-20 14 20m0-20 14 20" stroke="#a298a7" stroke-opacity=".25"/>
+    <g fill="url(#metal)" stroke="url(#rim)" stroke-width="1.5" stroke-linejoin="round">
+      <path d="m105 85 18-18h42l18 18v150l-18 18h-42l-18-18z"/>
+      <path d="m163 69 15-15h27l14 15v182l-14 15h-27l-15-15z"/>
+      <path d="m377 85 18-18h42l18 18v150l-18 18h-42l-18-18z"/>
+      <path d="m341 69 14-15h27l15 15v182l-15 15h-27l-14-15z"/>
+    </g>
+    <path d="M180 68v184M362 68v184M123 85v150M419 85v150" stroke="#aba0af" stroke-opacity=".17"/>
+    <path d="m165 83 13-14h19M343 83l13-14h19" stroke="#ed141b" stroke-width="3" stroke-linecap="round"/>
+    <path d="M76 151v18m408-18v18" stroke="#aba0af" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>
