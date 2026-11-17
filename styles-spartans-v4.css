@@ -1713,3 +1713,15 @@ main {
 .site-header .brand-logo { width:200px; height:76px; object-fit:contain; }
 .brand-logo--footer { width:260px; height:auto; }
 @media(max-width:640px) { .site-header .brand-logo { width:164px; height:62px; } .hero-title { font-size:clamp(44px,12vw,66px); line-height:1.04; } }
+
+/* Refined cards and restrained motion. */
+.plan-card { clip-path:none; border:1px solid #dedbde; border-radius:12px; border-top:3px solid #bcb7bc; box-shadow:0 8px 28px rgba(31,29,32,.05); transition:transform 240ms ease,box-shadow 240ms ease,border-color 240ms ease; }
+.plan-card--featured { border-color:var(--accent-base); }
+.plan-card .plan-btn { clip-path:none; border-radius:6px; }
+.about-media, .about-media img { clip-path:none; border-radius:10px; }
+.about-media img { aspect-ratio:639/359; object-fit:contain; transform:none!important; }
+.coverflow-slide img { object-fit:contain; background:#1f1d20; }
+.motion-ready .reveal { transform:translateY(12px); transition-duration:420ms; transition-delay:0ms; }
+a.trial-cta::after { display:none; }
+@media(hover:hover) and (prefers-reduced-motion:no-preference) { .plan-card:hover { transform:translateY(-4px); box-shadow:0 16px 36px rgba(31,29,32,.12); } }
+@media(prefers-reduced-motion:reduce) { .plan-card { transition:none; } }
