@@ -1838,3 +1838,5 @@ a.trial-cta::after { display:none; }
 .section-testimonials > .container { max-width:1440px; }
 .reviews-carousel .testimonial blockquote,.testimonial figcaption { font-family:var(--font-sans); }
 @media(max-width:800px) { .space-specialties { grid-template-columns:1fr; } .space-specialty { padding:24px; } }
+/* Carousel captions use the body typeface. */
+.caption-title { font-family:"Poppins",sans-serif; font-weight:600; font-style:normal; letter-spacing:-.02em; -webkit-text-stroke:0; }
