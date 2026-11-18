@@ -1788,3 +1788,24 @@ a.trial-cta::after { display:none; }
 .review-actions { display:flex; flex-wrap:wrap; align-items:center; gap:20px; margin-top:24px; }
 .review-cta { min-height:48px; }
 @media(max-width:640px) { .review-actions { align-items:flex-start; flex-direction:column; } }
+
+/* Consistent interactive feedback, with keyboard and motion preferences. */
+.btn-primary,.btn-secondary,.plan-btn,.coverflow-btn,.reviews-controls button,.space-specialty,.testimonial blockquote { transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease,box-shadow 200ms ease,transform 200ms ease; }
+.btn-primary:focus-visible { background:var(--accent-hover); border-color:var(--accent-hover); color:#fff; }
+.plan-card:focus-within { border-color:var(--accent-base); box-shadow:0 12px 30px rgba(31,29,32,.12); }
+@media(hover:hover) and (pointer:fine) {
+ .btn-primary:hover { background:var(--accent-hover); border-color:var(--accent-hover); color:#fff; box-shadow:0 6px 18px rgba(225,9,10,.2); }
+ .btn-secondary:hover { background:#fff; border-color:#fff; color:#211e22; }
+ .plan-btn:hover { background:#211e22; border-color:#211e22; color:#fff; }
+ .plan-card--featured .plan-btn--primary:hover { background:#fff; border-color:#fff; color:#211e22; }
+ .coverflow-btn:hover,.reviews-controls button:hover { background:var(--accent-base); border-color:var(--accent-base); color:#fff; }
+ .space-specialty:hover { background:#29252a; border-color:rgba(255,255,255,.28); border-top-color:var(--accent-base); box-shadow:0 10px 24px rgba(0,0,0,.12); }
+ .testimonial:hover blockquote { border-color:#aaa1ab; box-shadow:0 8px 22px rgba(31,29,32,.07); }
+ .testimonial:hover blockquote::after { border-color:#aaa1ab; }
+ .testimonials-source:hover { color:var(--accent-base); text-decoration-thickness:2px; }
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+ .space-specialty:hover { transform:translateY(-3px); }
+ .reviews-controls button:hover { transform:translateY(-2px); }
+}
+@media(prefers-reduced-motion:reduce) { .btn-primary,.btn-secondary,.plan-btn,.coverflow-btn,.reviews-controls button,.space-specialty,.testimonial blockquote { transition:none; } }
