@@ -1829,3 +1829,12 @@ a.trial-cta::after { display:none; }
 .carousel-playback { display:block; margin:16px auto 0; border:1px solid currentColor; background:transparent; color:inherit; padding:8px 14px; font:inherit; font-size:12px; cursor:pointer; }
 #space-carousel .carousel-playback { grid-column:1 / -1; margin-top:0; color:#fff; }
 @media(max-width:640px) { .reviews-carousel { padding-inline:46px; } .reviews-controls button { width:36px; height:36px; } .coverflow { grid-template-columns:36px minmax(0,1fr) 36px; gap:8px; } .coverflow .coverflow-btn { width:36px; height:36px; } }
+/* Full-width training cards with the Spartans red and Poppins. */
+.space-specialties { width:100%; margin:32px 0 0; gap:20px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.space-specialty { padding:30px; border-top:3px solid #e1090a; font-family:var(--font-sans); }
+.space-specialty h3 { font-family:var(--font-sans); font-weight:600; font-style:normal; font-size:20px; line-height:1.45; letter-spacing:-.02em; }
+.space-specialty h3 span { color:#f52222; }
+.space-specialty p { font-family:var(--font-sans); font-size:15px; line-height:1.75; color:#dedede; }
+.section-testimonials > .container { max-width:1440px; }
+.reviews-carousel .testimonial blockquote,.testimonial figcaption { font-family:var(--font-sans); }
+@media(max-width:800px) { .space-specialties { grid-template-columns:1fr; } .space-specialty { padding:24px; } }
