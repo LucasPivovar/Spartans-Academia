@@ -22,3 +22,24 @@
  track.addEventListener('keydown',event=>{if(['ArrowRight','ArrowLeft'].includes(event.key)){event.preventDefault();go(event.key==='ArrowRight'?1:-1);}});
  new ResizeObserver(update).observe(track);update();
 })();
+
+// Autoplay respects interaction, visibility and reduced-motion preferences.
+(() => {
+ const motion=matchMedia('(prefers-reduced-motion: reduce)');
+ [['#space-carousel','#carousel-next',5500],['.reviews-carousel','[data-review-step="1"]',7500]].forEach(([selector,nextSelector,delay])=>{
+  const root=document.querySelector(selector),next=document.querySelector(nextSelector);if(!root||!next)return;
+  const toggle=document.createElement('button');toggle.type='button';toggle.className='carousel-playback';
+  let stopped=motion.matches,hover=false,focused=false,visible=false,timer;
+  const label=()=>{toggle.textContent=stopped?'Ativar passagem automática':'Pausar passagem automática';toggle.setAttribute('aria-pressed',String(!stopped));};
+  const sync=()=>{clearInterval(timer);if(!stopped&&!hover&&!focused&&visible&&!document.hidden&&!motion.matches)timer=setInterval(()=>next.click(),delay);};
+  toggle.addEventListener('click',()=>{stopped=!stopped;label();sync();});root.append(toggle);label();
+  root.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'){hover=true;sync();}});
+  root.addEventListener('pointerleave',()=>{hover=false;sync();});
+  root.addEventListener('focusin',()=>{focused=true;sync();});
+  root.addEventListener('focusout',()=>{setTimeout(()=>{focused=root.contains(document.activeElement);sync();},0);});
+  root.addEventListener('pointerdown',()=>{sync();});
+  document.addEventListener('visibilitychange',sync);
+  motion.addEventListener('change',()=>{if(motion.matches)stopped=true;label();sync();});
+  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();},{threshold:.25}).observe(root);
+ });
+})();

@@ -1812,3 +1812,20 @@ a.trial-cta::after { display:none; }
 /* Three training areas. */
 .space-specialties { grid-template-columns:repeat(3,minmax(0,1fr)); }
 @media(max-width:800px) { .space-specialties { grid-template-columns:1fr; } }
+
+/* Mirrored section dividers; controls beside each carousel. */
+.section-about::before,.section-space::before,.section-plans::before,.section-faq::before,.section-booking::before { transform:scaleX(-1); }
+.reviews-carousel { position:relative; padding-inline:60px; }
+.reviews-controls { display:contents; }
+.reviews-controls button { position:absolute; top:calc(50% - 22px); display:grid; place-items:center; padding:0; }
+.reviews-controls [data-review-step="-1"] { left:0; }
+.reviews-controls [data-review-step="1"] { right:0; }
+.reviews-status { display:block; text-align:center; margin-top:12px; }
+.coverflow { display:grid; grid-template-columns:44px minmax(0,720px) 44px; gap:16px; }
+.coverflow .coverflow-stage { width:100%; min-width:0; }
+.coverflow .coverflow-btn { position:relative; inset:auto; top:auto; left:auto; right:auto; transform:none; border-radius:50%; padding:0; }
+.coverflow .coverflow-btn svg { width:20px; height:20px; }
+.coverflow .coverflow-btn:active { transform:scale(.95); }
+.carousel-playback { display:block; margin:16px auto 0; border:1px solid currentColor; background:transparent; color:inherit; padding:8px 14px; font:inherit; font-size:12px; cursor:pointer; }
+#space-carousel .carousel-playback { grid-column:1 / -1; margin-top:0; color:#fff; }
+@media(max-width:640px) { .reviews-carousel { padding-inline:46px; } .reviews-controls button { width:36px; height:36px; } .coverflow { grid-template-columns:36px minmax(0,1fr) 36px; gap:8px; } .coverflow .coverflow-btn { width:36px; height:36px; } }
