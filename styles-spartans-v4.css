@@ -1840,3 +1840,6 @@ a.trial-cta::after { display:none; }
 @media(max-width:800px) { .space-specialties { grid-template-columns:1fr; } .space-specialty { padding:24px; } }
 /* Carousel captions use the body typeface. */
 .caption-title { font-family:"Poppins",sans-serif; font-weight:600; font-style:normal; letter-spacing:-.02em; -webkit-text-stroke:0; }
+/* Center review actions on all screen sizes. */
+.review-actions { justify-content:center; }
+@media(max-width:640px) { .review-actions { align-items:center; } }
