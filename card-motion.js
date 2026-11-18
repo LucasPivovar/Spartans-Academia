@@ -10,17 +10,15 @@
 })();
 
 (() => {
- const track=document.querySelector('#reviews-track');
- if(!track) return;
- const slides=[...track.querySelectorAll('.testimonial')];
- const status=document.querySelector('.reviews-status');
- let current=0;
- const update=()=>{current=slides.reduce((best,slide,i)=>Math.abs(slide.offsetLeft-slides[0].offsetLeft-track.scrollLeft)<Math.abs(slides[best].offsetLeft-slides[0].offsetLeft-track.scrollLeft)?i:best,0);status.textContent=(current+1)+' / '+slides.length;};
- document.querySelectorAll('[data-review-step]').forEach(button=>button.addEventListener('click',()=>{
-  const next=(current+Number(button.dataset.reviewStep)+slides.length)%slides.length;
-  track.scrollTo({left:slides[next].offsetLeft-slides[0].offsetLeft,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
- }));
+ const track=document.querySelector('#reviews-track'); if(!track)return;
+ const slides=[...track.querySelectorAll('.testimonial')],status=document.querySelector('.reviews-status');
+ let page=0;
+ const perPage=()=>innerWidth<=640?1:innerWidth<=960?2:3;
+ const pages=()=>Math.ceil(slides.length/perPage());
+ const update=()=>{ const step=slides[1].offsetLeft-slides[0].offsetLeft; page=Math.min(pages()-1,Math.round(track.scrollLeft/(step*perPage())));status.textContent=(page+1)+' / '+pages(); };
+ const go=(direction)=>{page=(page+direction+pages())%pages();track.scrollTo({left:slides[page*perPage()].offsetLeft-slides[0].offsetLeft,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};
+ document.querySelectorAll('[data-review-step]').forEach(button=>button.addEventListener('click',()=>go(Number(button.dataset.reviewStep))));
  track.addEventListener('scroll',update,{passive:true});
- track.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();document.querySelector('[data-review-step="'+(event.key==='ArrowRight'?'1':'-1')+'"]').click();}});
- update();
+ track.addEventListener('keydown',event=>{if(['ArrowRight','ArrowLeft'].includes(event.key)){event.preventDefault();go(event.key==='ArrowRight'?1:-1);}});
+ new ResizeObserver(update).observe(track);update();
 })();

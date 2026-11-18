@@ -1773,3 +1773,14 @@ a.trial-cta::after { display:none; }
 .reviews-controls button:hover { background:#252126; color:white; }
 .reviews-status { font-size:13px; font-variant-numeric:tabular-nums; }
 @media(max-width:640px) { .reviews-carousel .testimonial blockquote { padding:24px; } }
+
+/* Three reviews per page, responsive down to one. */
+.section-testimonials .section-heading { color:#211e22; opacity:1; visibility:visible; }
+.reviews-carousel { max-width:none; }
+.reviews-carousel .testimonials-grid { align-items:stretch; }
+.reviews-carousel .testimonial { flex-basis:calc((100% - 48px)/3); display:flex; flex-direction:column; }
+.reviews-carousel .testimonial blockquote { flex:1; padding:26px; font-size:17px; line-height:1.65; }
+.review-stars { display:block; color:#b77908; letter-spacing:3px; font-size:19px; margin-bottom:16px; }
+.testimonial blockquote p { margin:0; }
+@media(max-width:960px) { .reviews-carousel .testimonial { flex-basis:calc((100% - 24px)/2); } }
+@media(max-width:640px) { .reviews-carousel .testimonial { flex-basis:100%; } }
