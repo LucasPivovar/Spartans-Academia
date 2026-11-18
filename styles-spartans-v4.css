@@ -1809,3 +1809,6 @@ a.trial-cta::after { display:none; }
  .reviews-controls button:hover { transform:translateY(-2px); }
 }
 @media(prefers-reduced-motion:reduce) { .btn-primary,.btn-secondary,.plan-btn,.coverflow-btn,.reviews-controls button,.space-specialty,.testimonial blockquote { transition:none; } }
+/* Three training areas. */
+.space-specialties { grid-template-columns:repeat(3,minmax(0,1fr)); }
+@media(max-width:800px) { .space-specialties { grid-template-columns:1fr; } }
