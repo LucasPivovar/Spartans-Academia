@@ -92,7 +92,7 @@ if (bookingForm && bookingFeedback) {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
       if (link.dataset.plan) planSelect.value = link.dataset.plan;
-      else if (link.classList.contains("trial-cta") || link.classList.contains("about-link")) planSelect.value = "Treino Experimental Gratuito";
+      else if (link.classList.contains("trial-cta") || link.classList.contains("about-link")) planSelect.value = "Aula Experimental Gratuita";
       history.replaceState(null, "", "#agendar");
       document.getElementById("agendar").scrollIntoView({behavior: reducedMotion.matches ? "auto" : "smooth", block: "start"});
       nameInput.focus({preventScroll: true});
@@ -149,16 +149,20 @@ const carouselStage = document.querySelector(".coverflow-stage");
 
 const slideInfo = [
   {
-    title: "Halteres & Pesos Livres",
-    desc: "Halteres e pesos livres para sua rotina de musculação.",
+    title: "Amplo Espaço de Musculação",
+    desc: "Equipamentos modernos e variados para diferentes grupos musculares, preparados para hipertrofia, força e qualidade de vida.",
   },
   {
-    title: "Pesos Livres & Condicionamento",
-    desc: "Espaço completo para treino funcional, ganho de força e preparação física de atletas.",
+    title: "Área de Cardio Completa",
+    desc: "Esteiras convencionais, esteiras inclinadas, bicicletas de spinning e escada ergométrica para aquecimento e emagrecimento.",
   },
   {
-    title: "Salão Principal Spartans",
-    desc: "Estrutura completa em Curitiba unindo equipamentos de musculação e atendimento próximo.",
+    title: "Polias Multifuncionais & Pesos Livres",
+    desc: "Polias multifuncionais, bancos, barras e aparelhos específicos para evoluir com segurança e precisão.",
+  },
+  {
+    title: "Ambiente Organizado & Professores",
+    desc: "Espaço amplo, iluminado e professores disponíveis durante todo o horário de funcionamento para orientar seu treino.",
   },
 ];
 
@@ -241,4 +245,33 @@ if (slides.length > 0) {
   }
 
   renderCarousel(0);
+}
+
+// Modal de equipamentos e estrutura
+const equipmentModal = document.getElementById("equipment-modal");
+const openEquipmentBtn = document.getElementById("open-equipment-modal");
+const closeEquipmentBtn = document.getElementById("close-equipment-modal");
+
+if (equipmentModal && openEquipmentBtn) {
+  openEquipmentBtn.addEventListener("click", () => {
+    if (typeof equipmentModal.showModal === "function") {
+      equipmentModal.showModal();
+    } else {
+      equipmentModal.setAttribute("open", "");
+    }
+  });
+
+  if (closeEquipmentBtn) {
+    closeEquipmentBtn.addEventListener("click", () => {
+      if (typeof equipmentModal.close === "function") equipmentModal.close();
+      else equipmentModal.removeAttribute("open");
+    });
+  }
+
+  equipmentModal.addEventListener("click", (event) => {
+    if (event.target === equipmentModal) {
+      if (typeof equipmentModal.close === "function") equipmentModal.close();
+      else equipmentModal.removeAttribute("open");
+    }
+  });
 }
