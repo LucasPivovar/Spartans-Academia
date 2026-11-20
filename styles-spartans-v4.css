@@ -2160,11 +2160,15 @@ a.trial-cta::after { display:none; }
 }
 
 /* ================= POLISH V2: HERO EMBLEM, LARGER CAROUSEL, PLAN FONT, PAYMENT ICONS & MODAL ================= */
+.hero {
+  max-height: 860px;
+}
+
 .hero-inner--split {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(32px, 4vw, 64px);
+  gap: clamp(28px, 4vw, 64px);
 }
 
 .hero-emblem {
@@ -2176,7 +2180,7 @@ a.trial-cta::after { display:none; }
 }
 
 .hero-emblem-img {
-  width: clamp(300px, 31vw, 450px);
+  width: clamp(260px, 29vw, 440px);
   height: auto;
   display: block;
   opacity: 0.96;
@@ -2198,36 +2202,113 @@ a.trial-cta::after { display:none; }
     );
 }
 
+/* Tablet (768px - 1024px): keep Hero side-by-side and cap tall portrait height */
+@media (max-width: 1024px) {
+  .hero {
+    height: auto;
+    min-height: clamp(540px, 66vh, 720px);
+    max-height: 760px;
+  }
+
+  .hero-inner--split {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding-top: 48px;
+    padding-bottom: 56px;
+  }
+
+  .hero-content {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .hero-emblem-img {
+    width: clamp(210px, 28vw, 310px);
+  }
+}
+
 @media (max-width: 960px) {
+  .about-media {
+    max-width: 100%;
+    justify-self: stretch;
+  }
+
+  .about-text {
+    max-width: none;
+  }
+}
+
+/* Mobile (<= 767px): clean above-the-fold Hero without duplicate logo pushing CTAs down */
+@media (max-width: 767px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+
   .hero-inner--split {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 28px;
+    min-height: 0;
+    padding-top: 36px;
+    padding-bottom: 88px;
+    gap: 0;
   }
 
-  .hero-emblem-img {
-    width: 220px;
+  .hero-emblem {
+    display: none;
   }
-}
 
-@media (max-width: 640px) {
+  .hero-title {
+    font-size: clamp(44px, 12.5vw, 62px);
+    line-height: 1.02;
+    margin-bottom: 16px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .hero-cta-group {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
   .hero-scrim {
     background:
       linear-gradient(
         to bottom,
-        rgba(20, 18, 21, 0.84) 0%,
-        rgba(20, 18, 21, 0.94) 100%
+        rgba(20, 18, 21, 0.8) 0%,
+        rgba(20, 18, 21, 0.92) 100%
       );
   }
+}
 
-  .hero-emblem {
-    order: -1;
-    align-self: flex-start;
+@media (max-width: 640px) {
+  .about-media {
+    max-width: 360px;
+    justify-self: center;
   }
 
-  .hero-emblem-img {
-    width: 156px;
+  .daypass-bar,
+  .covenants-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .covenants-badges {
+    width: 100%;
+  }
+
+  .covenant-pill {
+    flex: 1 1 200px;
   }
 }
 
